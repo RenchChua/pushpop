@@ -6,7 +6,7 @@ describe("function to keep repeats in array", function () {
   var not_simple_one_repeat_arr = [1, 2, 1, 3];
   var not_simple_two_repeat_arr = [1, 2, 1, 2, 3];
   var not_simple_many_repeat_arr = [1,2,1,2,1,2,3,3,4,3,1,1,3];
-  var not_simple_many_repeat_order_wrong_arr = [2,1,2,1,2,3,3,4,3,1,1,3];
+  var not_simple_many_repeat_order_wrong_arr = [4,4,2,3,2,3,5,3,4,3,1,1,3];
 
   // it("didn't get array", function () {
   //   expect(repeatArr(not_arr)).toThrowError( "Not Array!" );
@@ -41,7 +41,7 @@ describe("function to keep repeats in array", function () {
   });
 
   it("got not simple array with many repeats order wrong", function () {
-    expect(repeatArr(not_simple_many_repeat_order_wrong_arr)).toEqual([1, 2, 3]);
+    expect(repeatArr(not_simple_many_repeat_order_wrong_arr)).toEqual([1, 2, 3, 4]);
   });
 
 
