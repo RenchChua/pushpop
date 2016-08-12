@@ -1,28 +1,38 @@
-
-function getDuplicate(arr) {
-  if(Array.isArray(arr) === false ){
-    throw new Error("Not Array!");
-  }else{
-    // var sorted_arr = arr.slice().sort();
-    var count = {};
-    results_arr = [];
-    for (var i = 0; i < arr.length; i++) {
-      var item = arr[i];
-      if(!Number.isInteger(item)){
-        throw new Error("Not all integers");
-      }
-      //makes every item in the array a property of count object. if value of that property is >= 1, then add one to that value of that property, else set it to be 1
-      count[item] = count[item] >=1 ? count[item] += 1 : 1;
-
-      // if the value of the property is 2, then push it to the results_arr, if it's more than 2, ignore, cos already pushed. If less than 2 also ignore, cos no duplicate. 
-      if(count[item] == 2){
-        results_arr.push(item);
+function pushPop(initialArr, pushArr, num_to_pop) {
+  if (Array.isArray(initialArr) && Array.isArray(pushArr)) {
+    if (pushArr.length !== 0) {
+      for (i = 0; i <= pushArr.length; i++) {
+        initialArr.push(pushArr.shift());
       }
     }
-    results_arr = results_arr.sort();
-    console.log(count);
-    return results_arr;
+    if (Number.isInteger(num_to_pop) && num_to_pop > 0) {
+      for (i = 1; i <= num_to_pop; i++) {
+        console.log(initialArr);
+        initialArr.pop();
+      }
+    }
+  }else if(!Array.isArray(initialArr)){
+    initialArr = [];
+    if (pushArr.length !== 0) {
+      for (i = 0; i <= pushArr.length; i++) {
+        initialArr.push(pushArr.shift());
+      }
+    }
+    if (Number.isInteger(num_to_pop) && num_to_pop > 0) {
+      for (i = 1; i <= num_to_pop; i++) {
+        console.log(initialArr);
+        initialArr.pop();
+      }
+    }
   }
+  return initialArr;
 }
 
-getDuplicate([2,4,2,3,5,3,5,6,3,2,1,3,1])
+
+
+console.log(pushPop([1, 2], [], 1));
+
+// initialArr can be empty
+// pushArr can be empty
+// pop from top of pushArr to push into initialArr
+// num_to_pop MUST be integer
